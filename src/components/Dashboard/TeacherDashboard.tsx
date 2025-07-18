@@ -100,12 +100,12 @@ const TeacherDashboard: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Panel de Docente</h1>
-          <p className="text-gray-600">Bienvenido, {user?.name}</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Panel de Docente</h1>
+          <p className="text-gray-600 dark:text-white">Bienvenido, {user?.name}</p>
         </div>
         <div className="text-right">
-          <p className="text-sm text-gray-500">Fecha actual</p>
-          <p className="text-sm font-medium text-gray-900">
+          <p className="text-sm text-gray-500 dark:text-white">Fecha actual</p>
+          <p className="text-sm font-medium text-gray-900 dark:text-white">
             {new Date().toLocaleDateString('es-ES', { 
               weekday: 'long', 
               year: 'numeric', 
