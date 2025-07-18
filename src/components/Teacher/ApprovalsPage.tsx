@@ -72,7 +72,6 @@ const ApprovalsPage: React.FC = () => {
       await updateLoan(loanId, {
         status: 'approved',
         approvedDate: new Date(),
-        actualStartDate: new Date(),
         approvedBy: user!.id
       });
 
@@ -81,7 +80,7 @@ const ApprovalsPage: React.FC = () => {
         userId: loan.userId,
         type: 'approved',
         title: 'Préstamo Aprobado',
-        message: `Tu solicitud de préstamo ha sido aprobada por tu docente. Puedes recoger el equipo.`,
+        message: `Tu solicitud de préstamo ha sido aprobada por tu docente. Espera a que se active para poder recoger el equipo.`,
         relatedLoanId: loanId
       });
 
@@ -119,6 +118,35 @@ const ApprovalsPage: React.FC = () => {
     } catch (error) {
       console.error('Error rejecting loan:', error);
       alert('Error al rechazar el préstamo');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleActivateLoan = async (loanId: string) => {
+    setLoading(true);
+    try {
+      const loan = loans.find(l => l.id === loanId);
+      if (!loan) throw new Error('Préstamo no encontrado');
+
+      await updateLoan(loanId, {
+        status: 'active',
+        actualStartDate: new Date()
+      });
+
+      // Crear notificación para el estudiante
+      await addNotification({
+        userId: loan.userId,
+        type: 'approved',
+        title: 'Préstamo Activado',
+        message: `Tu préstamo ha sido activado. Ya puedes recoger el equipo y usarlo según lo acordado.`,
+        relatedLoanId: loanId
+      });
+
+      alert('Préstamo activado exitosamente');
+    } catch (error) {
+      console.error('Error activating loan:', error);
+      alert('Error al activar el préstamo');
     } finally {
       setLoading(false);
     }
@@ -201,7 +229,7 @@ const ApprovalsPage: React.FC = () => {
     color: string;
     description: string;
   }> = ({ title, value, icon, color, description }) => (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -220,10 +248,10 @@ const ApprovalsPage: React.FC = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Aprobaciones de Préstamos</h1>
-          <p className="text-gray-600 dark:text-white">
+          <p className="text-gray-600 dark:text-gray-400">
             Gestiona las solicitudes de préstamo y devoluciones de tus estudiantes
             {myStudents.length > 0 && (
-              <span className="block text-sm text-gray-500 mt-1 dark:text-white">
+              <span className="block text-sm text-gray-500 mt-1 dark:text-gray-300">
                 Tienes {myStudents.length} estudiante(s) asignado(s) • {stats.pending} solicitud(es) pendiente(s) • {stats.returnRequests} devolución(es) pendiente(s)
               </span>
             )}
@@ -232,7 +260,7 @@ const ApprovalsPage: React.FC = () => {
       </div>
 
       {myStudents.length === 0 && (
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 dark:bg-gray-800">
           <div className="flex items-center">
             <Clock className="w-5 h-5 text-yellow-600 mr-2" />
             <p className="text-sm text-yellow-800">
@@ -253,7 +281,7 @@ const ApprovalsPage: React.FC = () => {
                 placeholder="Buscar por equipo, estudiante o propósito..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-150 dark:text-white"
               />
             </div>
           </div>
@@ -317,12 +345,12 @@ const ApprovalsPage: React.FC = () => {
 
       {/* Lista de solicitudes */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-        <div className="p-6 border-b border-gray-200 dark:bg-gray-300 transition-colors">
-          <h3 className="text-lg font-semibold text-gray-900 ">
+        <div className="p-6 border-b border-gray-200 dark:bg-gray-300">
+          <h3 className="text-lg font-semibold text-gray-900">
             Solicitudes de Préstamo ({filteredLoans.length})
           </h3>
         </div>
-        <div className="divide-y divide-gray-200 dark:divide-gray-300">
+        <div className="divide-y divide-gray-200">
           {filteredLoans.length > 0 ? (
             filteredLoans
               .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
@@ -331,7 +359,7 @@ const ApprovalsPage: React.FC = () => {
                 const student = users.find(u => u.id === loan.userId);
                 
                 return (
-                  <div key={loan.id} className="p-6 hover:bg-gray-50 dark:hover:bg-gray-400 transition-colors">
+                  <div key={loan.id} className="p-6 hover:bg-gray-50 dark:hover:bg-gray-300">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center space-x-3 mb-2">
@@ -405,6 +433,17 @@ const ApprovalsPage: React.FC = () => {
                               <span>Rechazar</span>
                             </button>
                           </div>
+                        )}
+
+                        {loan.status === 'approved' && (
+                          <button
+                            onClick={() => handleActivateLoan(loan.id)}
+                            disabled={loading}
+                            className="flex items-center space-x-1 bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 disabled:opacity-50"
+                          >
+                            <CheckCircle className="w-4 h-4" />
+                            <span>Marcar como Activo</span>
+                          </button>
                         )}
 
                         {loan.status === 'return_requested' && (
@@ -568,6 +607,22 @@ const ApprovalsPage: React.FC = () => {
                   >
                     <CheckCircle className="w-4 h-4" />
                     <span>Aprobar</span>
+                  </button>
+                </div>
+              )}
+
+              {selectedLoan.status === 'approved' && (
+                <div className="flex justify-end space-x-3 pt-4 border-t border-gray-200">
+                  <button
+                    onClick={() => {
+                      handleActivateLoan(selectedLoan.id);
+                      setShowDetailModal(false);
+                    }}
+                    disabled={loading}
+                    className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                  >
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Marcar como Activo</span>
                   </button>
                 </div>
               )}
