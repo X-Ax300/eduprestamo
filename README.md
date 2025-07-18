@@ -56,8 +56,7 @@ VITE_FIREBASE_APP_ID=tu_app_id
 🔐 **El sistema crea automáticamente un administrador por defecto:**
 
 - **Email**: `admin@eduprestamo.com`
-- **Contraseña**: `Admin123!`
-- **Rol**: Administrador
+
 
 **Características del sistema de administrador:**
 - Se crea automáticamente al inicializar la aplicación
