@@ -154,13 +154,13 @@ const ProfilePage: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Mi Perfil</h1>
-          <p className="text-gray-600">Gestiona tu información personal y configuración</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-300">Mi Perfil</h1>
+          <p className="text-gray-600 dark:text-gray-300">Gestiona tu información personal y configuración</p>
         </div>
       </div>
 
       {/* Información básica */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
         <div className="flex items-center space-x-4 mb-6">
           <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
             <User className="w-8 h-8 text-white" />
@@ -202,7 +202,7 @@ const ProfilePage: React.FC = () => {
       </div>
 
       {/* Formulario de edición */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-lg font-semibold text-gray-900">Editar Información</h3>
           <button
@@ -226,7 +226,7 @@ const ProfilePage: React.FC = () => {
                 name="email"
                 value={profileData.email}
                 onChange={handleProfileInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-150 transition-colors"
                 required
               />
             </div>
@@ -242,6 +242,7 @@ const ProfilePage: React.FC = () => {
                   value={profileData.cedula}
                   onChange={handleProfileInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  readOnly
                 />
               </div>
             )}

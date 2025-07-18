@@ -118,7 +118,7 @@ const MyLoansPage: React.FC = () => {
     color: string;
     description: string;
   }> = ({ title, value, icon, color, description }) => (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -136,13 +136,13 @@ const MyLoansPage: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Mis Préstamos</h1>
-          <p className="text-gray-600">Historial y estado de tus solicitudes de préstamo</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Mis Préstamos</h1>
+          <p className="text-gray-600 dark:text-white">Historial y estado de tus solicitudes de préstamo</p>
         </div>
       </div>
 
       {/* Filtros y búsqueda */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
             <div className="relative">
@@ -209,7 +209,7 @@ const MyLoansPage: React.FC = () => {
 
       {/* Lista de préstamos */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-        <div className="p-6 border-b border-gray-200">
+        <div className="p-6 border-b border-gray-200 dark:bg-gray-300 transition-colors">
           <h3 className="text-lg font-semibold text-gray-900">
             Historial de Préstamos ({filteredLoans.length})
           </h3>
@@ -226,7 +226,7 @@ const MyLoansPage: React.FC = () => {
                 const canRequestReturn = loan.status === 'active';
                 
                 return (
-                  <div key={loan.id} className="p-6 hover:bg-gray-50">
+                  <div key={loan.id} className="p-6 hover:bg-gray-50 dark:hover:bg-gray-400 transition-colors dark:hover:bg-gray-400">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center space-x-3 mb-2">
@@ -236,7 +236,7 @@ const MyLoansPage: React.FC = () => {
                           {getStatusBadge(loan.status, loan.preferredEndDate)}
                         </div>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 ">
                           <div>
                             <p><span className="font-medium">Código:</span> {equipmentItem?.code}</p>
                             <p><span className="font-medium">Propósito:</span> {loan.purpose}</p>

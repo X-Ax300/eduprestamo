@@ -153,13 +153,13 @@ const ReturnsPage: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Gestión de Devoluciones</h1>
-          <p className="text-gray-600">Procesa las devoluciones de equipos y evalúa su estado</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Gestión de Devoluciones</h1>
+          <p className="text-gray-600 dark:text-white">Procesa las devoluciones de equipos y evalúa su estado</p>
         </div>
       </div>
 
       {/* Filtros y búsqueda */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
             <div className="relative">
@@ -190,7 +190,7 @@ const ReturnsPage: React.FC = () => {
 
       {/* Estadísticas rápidas */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Devoluciones Pendientes</p>
@@ -201,7 +201,7 @@ const ReturnsPage: React.FC = () => {
             <Package className="w-8 h-8 text-purple-600" />
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Préstamos Vencidos</p>
@@ -217,7 +217,7 @@ const ReturnsPage: React.FC = () => {
             <AlertTriangle className="w-8 h-8 text-red-600" />
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Devueltos Hoy</p>
@@ -235,7 +235,7 @@ const ReturnsPage: React.FC = () => {
             <CheckCircle className="w-8 h-8 text-green-600" />
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Total a Procesar</p>
@@ -247,8 +247,8 @@ const ReturnsPage: React.FC = () => {
       </div>
 
       {/* Lista de devoluciones */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-        <div className="p-6 border-b border-gray-200">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-300 transition-colors">
+        <div className="p-6 border-b border-gray-200 da">
           <h3 className="text-lg font-semibold text-gray-900">
             Devoluciones Pendientes ({filteredLoans.length})
           </h3>

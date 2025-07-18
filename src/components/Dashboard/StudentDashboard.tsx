@@ -28,7 +28,7 @@ const StudentDashboard: React.FC = () => {
     color: string;
     description: string;
   }> = ({ title, value, icon, color, description }) => (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-200 transition-colors">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -72,15 +72,15 @@ const StudentDashboard: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Mi Dashboard</h1>
-          <p className="text-gray-600">Bienvenido, {user?.name}</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Mi Dashboard</h1>
+          <p className="text-gray-600 dark:text-white">Bienvenido, {user?.name}</p>
           {user?.matricula && (
-            <p className="text-sm text-gray-500">Matrícula: {user.matricula}</p>
+            <p className="text-sm text-gray-500 dark:text-white">Matrícula: {user.matricula}</p>
           )}
         </div>
         <div className="text-right">
-          <p className="text-sm text-gray-500">Fecha actual</p>
-          <p className="text-sm font-medium text-gray-900">
+          <p className="text-sm text-gray-500 dark:text-white">Fecha actual</p>
+          <p className="text-sm font-medium text-gray-900 dark:text-white">
             {new Date().toLocaleDateString('es-ES', { 
               weekday: 'long', 
               year: 'numeric', 
@@ -92,7 +92,7 @@ const StudentDashboard: React.FC = () => {
       </div>
 
       {/* Statistics Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 da">
         <StatCard
           title="Equipos Disponibles"
           value={stats.availableEquipment}
@@ -125,7 +125,7 @@ const StudentDashboard: React.FC = () => {
 
       {/* My Loans and Available Equipment */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-200 transition-colors">
           <div className="p-6 border-b border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900">Mis Préstamos Activos</h3>
             <p className="text-sm text-gray-500">Equipos que tienes en préstamo</p>
@@ -172,7 +172,7 @@ const StudentDashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-200 transition-colors">
           <div className="p-6 border-b border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900">Equipos Disponibles</h3>
             <p className="text-sm text-gray-500">Equipos que puedes solicitar</p>
@@ -205,30 +205,6 @@ const StudentDashboard: React.FC = () => {
               </div>
             )}
           </div>
-        </div>
-      </div>
-
-      {/* Quick Actions */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Acciones Rápidas</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button className="p-4 border-2 border-dashed border-blue-300 rounded-lg text-center hover:border-blue-400 hover:bg-blue-50 transition-colors">
-            <Package className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-            <p className="font-medium text-blue-900">Solicitar Equipo</p>
-            <p className="text-sm text-blue-600">Ver equipos disponibles</p>
-          </button>
-          
-          <button className="p-4 border-2 border-dashed border-green-300 rounded-lg text-center hover:border-green-400 hover:bg-green-50 transition-colors">
-            <BookOpen className="w-8 h-8 text-green-600 mx-auto mb-2" />
-            <p className="font-medium text-green-900">Mis Préstamos</p>
-            <p className="text-sm text-green-600">Ver historial completo</p>
-          </button>
-          
-          <button className="p-4 border-2 border-dashed border-purple-300 rounded-lg text-center hover:border-purple-400 hover:bg-purple-50 transition-colors">
-            <CheckCircle className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-            <p className="font-medium text-purple-900">Devolver Equipo</p>
-            <p className="text-sm text-purple-600">Registrar devolución</p>
-          </button>
         </div>
       </div>
     </div>

@@ -136,7 +136,7 @@ const ReportsPage: React.FC = () => {
     color: string;
     description?: string;
   }> = ({ title, value, icon, color, description }) => (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -154,8 +154,8 @@ const ReportsPage: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Reportes y Análisis</h1>
-          <p className="text-gray-600">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Reportes y Análisis</h1>
+          <p className="text-gray-600 dark:text-white">
             {user?.role === 'admin' 
               ? 'Análisis completo del sistema de préstamos'
               : 'Reportes de tus estudiantes y préstamos'
@@ -172,7 +172,7 @@ const ReportsPage: React.FC = () => {
       </div>
 
       {/* Filtros */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -181,7 +181,7 @@ const ReportsPage: React.FC = () => {
             <select
               value={selectedReport}
               onChange={(e) => setSelectedReport(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-100 transition-colors"
             >
               <option value="overview">Resumen General</option>
               <option value="equipment">Uso de Equipos</option>
@@ -197,7 +197,7 @@ const ReportsPage: React.FC = () => {
               type="date"
               value={dateRange.startDate}
               onChange={(e) => setDateRange(prev => ({ ...prev, startDate: e.target.value }))}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-100 transition-colors"
             />
           </div>
           <div>
@@ -208,7 +208,7 @@ const ReportsPage: React.FC = () => {
               type="date"
               value={dateRange.endDate}
               onChange={(e) => setDateRange(prev => ({ ...prev, endDate: e.target.value }))}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparentdark:bg-gray-100 transition-colors"
             />
           </div>
         </div>
@@ -238,7 +238,7 @@ const ReportsPage: React.FC = () => {
           description="Requieren atención"
         />
         <StatCard
-          title={user?.role === 'admin' ? 'Total Estudiantes' : 'Mis Estudiantes'}
+          title={user?.role === 'admin' ? 'Total Activos' : 'Mis Estudiantes'}
           value={stats.totalStudents}
           icon={<Users className="w-6 h-6 text-purple-600" />}
           color="bg-purple-50"
@@ -248,8 +248,8 @@ const ReportsPage: React.FC = () => {
 
       {/* Contenido del reporte según selección */}
       {selectedReport === 'overview' && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Estado de Préstamos</h3>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
@@ -267,7 +267,7 @@ const ReportsPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Estado de Equipos</h3>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
@@ -291,7 +291,7 @@ const ReportsPage: React.FC = () => {
 
       {selectedReport === 'equipment' && (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="p-6 border-b border-gray-200">
+          <div className="p-6 border-b border-gray-200 dark:bg-gray-300 transition-colors">
             <h3 className="text-lg font-semibold text-gray-900">Uso de Equipos</h3>
           </div>
           <div className="overflow-x-auto">
@@ -328,7 +328,7 @@ const ReportsPage: React.FC = () => {
 
       {selectedReport === 'students' && (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="p-6 border-b border-gray-200">
+          <div className="p-6 border-b border-gray-200 dark:bg-gray-300 transition-colors">
             <h3 className="text-lg font-semibold text-gray-900">Actividad de Estudiantes</h3>
           </div>
           <div className="overflow-x-auto">
