@@ -228,29 +228,6 @@ const TeacherDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Quick Actions */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Acciones Rápidas</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button className="p-4 border-2 border-dashed border-blue-300 rounded-lg text-center hover:border-blue-400 hover:bg-blue-50 transition-colors">
-            <UserCheck className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-            <p className="font-medium text-blue-900">Revisar Solicitudes</p>
-            <p className="text-sm text-blue-600">Aprobar o rechazar préstamos</p>
-          </button>
-          
-          <button className="p-4 border-2 border-dashed border-green-300 rounded-lg text-center hover:border-green-400 hover:bg-green-50 transition-colors">
-            <Users className="w-8 h-8 text-green-600 mx-auto mb-2" />
-            <p className="font-medium text-green-900">Gestionar Estudiantes</p>
-            <p className="text-sm text-green-600">Ver información detallada</p>
-          </button>
-          
-          <button className="p-4 border-2 border-dashed border-purple-300 rounded-lg text-center hover:border-purple-400 hover:bg-purple-50 transition-colors">
-            <BookOpen className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-            <p className="font-medium text-purple-900">Generar Reporte</p>
-            <p className="text-sm text-purple-600">Historial de préstamos</p>
-          </button>
-        </div>
-      </div>
     </div>
   );
 };

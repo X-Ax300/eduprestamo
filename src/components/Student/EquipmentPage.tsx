@@ -197,10 +197,10 @@ const EquipmentPage: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Equipos Disponibles</h1>
-          <p className="text-gray-600">Solicita préstamos de equipos tecnológicos</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Equipos Disponibles</h1>
+          <p className="text-gray-600 dark:text-white">Solicita préstamos de equipos tecnológicos</p>
           {user?.teacherId && (
-            <p className="text-sm text-blue-600 mt-1">
+            <p className="text-sm text-blue-600 mt-1 dark:text-blue-400">
               Tus solicitudes serán enviadas a tu docente asignado para aprobación
             </p>
           )}
@@ -208,7 +208,7 @@ const EquipmentPage: React.FC = () => {
       </div>
 
       {/* Filtros y búsqueda */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
             <div className="relative">
@@ -218,7 +218,7 @@ const EquipmentPage: React.FC = () => {
                 placeholder="Buscar por nombre, marca o modelo..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-150 dark:text-white"
               />
             </div>
           </div>
@@ -240,7 +240,7 @@ const EquipmentPage: React.FC = () => {
 
       {/* Estadísticas rápidas */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Equipos Disponibles</p>
@@ -249,7 +249,7 @@ const EquipmentPage: React.FC = () => {
             <Package className="w-8 h-8 text-green-600" />
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Categorías</p>
@@ -258,7 +258,7 @@ const EquipmentPage: React.FC = () => {
             <Package className="w-8 h-8 text-blue-600" />
           </div>
         </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Resultados</p>
@@ -277,7 +277,7 @@ const EquipmentPage: React.FC = () => {
           const isAvailable = item.status === 'available' && available > 0;
           
           return (
-            <div key={item.id} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+            <div key={item.id} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow dark:bg-gray-300">
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">

@@ -76,7 +76,7 @@ const SettingsPage: React.FC = () => {
     icon: React.ReactNode;
     children: React.ReactNode;
   }> = ({ title, description, icon, children }) => (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
       <div className="flex items-center space-x-3 mb-4">
         <div className="p-2 bg-blue-50 rounded-lg">
           {icon}
@@ -140,7 +140,7 @@ const SettingsPage: React.FC = () => {
           onChange={(e) => onChange(parseInt(e.target.value) || 0)}
           min={min}
           max={max}
-          className="w-20 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-20 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-350 transition-colors"
         />
         {suffix && <span className="text-sm text-gray-500">{suffix}</span>}
       </div>
@@ -177,8 +177,8 @@ const SettingsPage: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Configuración del Sistema</h1>
-          <p className="text-gray-600">Administra las configuraciones globales del sistema</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Configuración del Sistema</h1>
+          <p className="text-gray-600 dark:text-white">Administra las configuraciones globales del sistema</p>
         </div>
         <button
           onClick={handleSaveSettings}
@@ -344,7 +344,7 @@ const SettingsPage: React.FC = () => {
       </div>
 
       {/* Información del Sistema */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors dark:bg-gray-300 transition-colors">
         <div className="flex items-center space-x-3 mb-4">
           <div className="p-2 bg-gray-50 rounded-lg">
             <AlertTriangle className="w-5 h-5 text-gray-600" />
@@ -357,7 +357,7 @@ const SettingsPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
           <div>
             <span className="font-medium text-gray-700">Versión:</span>
-            <span className="ml-2 text-gray-600">1.0.0</span>
+            <span className="ml-2 text-gray-600">1.0.1</span>
           </div>
           <div>
             <span className="font-medium text-gray-700">Último Respaldo:</span>

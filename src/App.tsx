@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
+import { ThemeProvider } from './context/ThemeContext';
 import LoginForm from './components/Auth/LoginForm';
 import Layout from './components/Layout/Layout';
 import AdminDashboard from './components/Dashboard/AdminDashboard';
@@ -106,13 +107,15 @@ const AppRoutes: React.FC = () => {
 
 function App() {
   return (
-    <AuthProvider>
-      <DataProvider>
-        <Router>
-          <AppRoutes />
-        </Router>
-      </DataProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <DataProvider>
+          <Router>
+            <AppRoutes />
+          </Router>
+        </DataProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 
