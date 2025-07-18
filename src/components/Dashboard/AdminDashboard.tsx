@@ -37,7 +37,7 @@ const AdminDashboard: React.FC = () => {
     color: string;
     description: string;
   }> = ({ title, value, icon, color, description }) => (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-300 transition-colors">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -77,12 +77,12 @@ const AdminDashboard: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Panel de Administrador</h1>
-          <p className="text-gray-600">Bienvenido de vuelta, {user?.name}</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Panel de Administrador</h1>
+          <p className="text-gray-600 dark:text-white">Bienvenido de vuelta, {user?.name}</p>
         </div>
         <div className="text-right">
-          <p className="text-sm text-gray-500">Último acceso</p>
-          <p className="text-sm font-medium text-gray-900">
+          <p className="text-sm text-gray-500 dark:text-white">Último acceso</p>
+          <p className="text-sm font-medium text-gray-900 dark:text-white">
             {new Date().toLocaleDateString('es-ES', { 
               weekday: 'long', 
               year: 'numeric', 
@@ -141,8 +141,8 @@ const AdminDashboard: React.FC = () => {
 
       {/* Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="p-6 border-b border-gray-200">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-300 transition-colors">
+          <div className="p-6 border-b border-gray-200  ">
             <h3 className="text-lg font-semibold text-gray-900">Préstamos Recientes</h3>
             <p className="text-sm text-gray-500">Últimas 5 solicitudes</p>
           </div>
@@ -152,14 +152,14 @@ const AdminDashboard: React.FC = () => {
                 {recentLoans.map((loan) => {
                   const equipmentItem = equipment.find(eq => eq.id === loan.equipmentId);
                   return (
-                    <div key={loan.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div key={loan.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg dark:bg-gray-300 transition-colors">
                       <div className="flex-1">
                         <p className="font-medium text-gray-900">{equipmentItem?.name}</p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500"> 
                           {new Date(loan.createdAt).toLocaleDateString('es-ES')}
                         </p>
                       </div>
-                      <div className="text-right">
+                      <div className="text-right flex items-center">
                         {getStatusBadge(loan.status)}
                       </div>
                     </div>
@@ -172,7 +172,7 @@ const AdminDashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-300 transition-colors">
           <div className="p-6 border-b border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900">Alertas Importantes</h3>
             <p className="text-sm text-gray-500">Requieren atención inmediata</p>
@@ -180,7 +180,7 @@ const AdminDashboard: React.FC = () => {
           <div className="p-6">
             <div className="space-y-4">
               {stats.overdueLoans > 0 && (
-                <div className="flex items-center p-3 bg-red-50 rounded-lg border border-red-200">
+                <div className="flex items-center p-3 bg-red-50 rounded-lg border border-red-200 dark:bg-red-300 transition-colors">
                   <AlertCircle className="w-5 h-5 text-red-600 mr-3" />
                   <div>
                     <p className="text-sm font-medium text-red-800">

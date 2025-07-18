@@ -18,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
       <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
       
       <div className="flex-1 flex flex-col overflow-hidden">
