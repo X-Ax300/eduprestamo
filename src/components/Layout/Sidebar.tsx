@@ -125,7 +125,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
           <div className="p-4 border-t border-gray-200 dark:border-gray-700">
             <div className="bg-blue-50 dark:bg-blue-900/50 rounded-lg p-3">
-              <p className="text-xs text-blue-600 dark:text-blue-300 font-medium">Versión 1.0.2</p>
+              <p className="text-xs text-blue-600 dark:text-blue-300 font-medium">Versión 1.0.3</p>
               <p className="text-xs text-blue-500 dark:text-blue-400">Sistema de Gestión Educativa</p>
             </div>
           </div>
