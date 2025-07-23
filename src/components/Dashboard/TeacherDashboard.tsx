@@ -51,7 +51,7 @@ const TeacherDashboard: React.FC = () => {
     color: string;
     description: string;
   }> = ({ title, value, icon, color, description }) => (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 dark:bg-gray-200">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -150,7 +150,7 @@ const TeacherDashboard: React.FC = () => {
 
       {/* Students and Loans */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-200">
           <div className="p-6 border-b border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900">Mis Estudiantes</h3>
             <p className="text-sm text-gray-500">Estudiantes bajo mi supervisión</p>
@@ -188,8 +188,8 @@ const TeacherDashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="p-6 border-b border-gray-200">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-200">
+          <div className="p-6 border-b border-dark-200">
             <h3 className="text-lg font-semibold text-gray-900">Solicitudes Recientes</h3>
             <p className="text-sm text-gray-500">Últimas solicitudes de préstamo</p>
           </div>
