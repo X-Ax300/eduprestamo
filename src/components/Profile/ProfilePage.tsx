@@ -231,37 +231,8 @@ const ProfilePage: React.FC = () => {
               />
             </div>
 
-            {user?.role === 'teacher' && (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Cédula
-                </label>
-                <input
-                  type="text"
-                  name="cedula"
-                  value={profileData.cedula}
-                  onChange={handleProfileInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  readOnly
-                />
-              </div>
-            )}
-
             {user?.role === 'student' && (
               <>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Matrícula
-                  </label>
-                  <input
-                    type="text"
-                    name="matricula"
-                    value={profileData.matricula}
-                    onChange={handleProfileInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    readOnly
-                  />
-                </div>
               </>
             )}
           </div>
