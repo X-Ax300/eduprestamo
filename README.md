@@ -217,7 +217,3 @@ src/
 - **Control de roles** a nivel de base de datos
 - **Validaciones de permisos** en todas las operaciones
 - **Reglas de seguridad Firestore** configuradas
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT.
