@@ -87,8 +87,12 @@ const TeacherDashboard: React.FC = () => {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mb-2 mx-auto animate-pulse">
-            <span className="text-white font-bold text-sm">EP</span>
+          <div className="mx-auto w-16 h-16 rounded-xl flex items-center justify-center mb-4 overflow-hidden bg-gray-200">
+            <img 
+              src="https://images.genius.com/f28c9297b4b1d0d8aa32979d958805cb.640x640x1.jpg" 
+              alt="Foto de perfil" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <p className="text-gray-600">Cargando datos...</p>
         </div>
