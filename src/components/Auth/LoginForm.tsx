@@ -47,13 +47,9 @@ const LoginForm: React.FC = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="mx-auto w-16 h-16 rounded-xl flex items-center justify-center mb-4 overflow-hidden bg-gray-200">
-            <img 
-                src="https://images.genius.com/f28c9297b4b1d0d8aa32979d958805cb.640x640x1.jpg" 
-                alt="Foto de perfil" 
-                className="w-full h-full object-cover"
-              />
-            </div>
+         <div className="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-4 mx-auto animate-pulse">
+            <span className="text-white font-bold text-xl">EP</span>
+          </div>
           <p className="text-gray-600">Verificando sistema...</p>
         </div>
       </div>
@@ -64,13 +60,9 @@ const LoginForm: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <div className="mx-auto w-16 h-16 rounded-xl flex items-center justify-center mb-4 overflow-hidden bg-gray-200">
-          <img 
-            src="https://images.genius.com/f28c9297b4b1d0d8aa32979d958805cb.640x640x1.jpg" 
-            alt="Foto de perfil" 
-            className="w-full h-full object-cover"
-          />
-        </div>
+          <div className="mx-auto w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
+            <span className="text-white font-bold text-xl">EP</span>
+          </div>
           <h2 className="text-3xl font-bold text-gray-900">EduPrestamo</h2>
           <p className="mt-2 text-gray-600">Sistema de Préstamo de Equipos Tecnológicos</p>
         </div>
