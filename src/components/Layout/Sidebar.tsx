@@ -90,13 +90,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col h-full">
           <div className="p-6 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center space-x-3">
-              <div className="mx-auto w-16 h-16 rounded-xl flex items-center justify-center mb-4 overflow-hidden bg-gray-200">
-              <img 
-                src="https://images.genius.com/f28c9297b4b1d0d8aa32979d958805cb.640x640x1.jpg" 
-                alt="Foto de perfil" 
-                className="w-full h-full object-cover"
-              />
-            </div>
+              <div className="mx-auto w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
+            <span className="text-white font-bold text-xl">EP</span>
+          </div>
               <div>
                 <h2 className="text-lg font-bold text-gray-900 dark:text-white">EduPrestamo</h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Sistema de Préstamos</p>
